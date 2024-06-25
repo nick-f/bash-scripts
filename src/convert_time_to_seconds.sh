@@ -41,8 +41,8 @@ convert_time_to_seconds() {
 
   total_seconds=$(echo "$number * $seconds_per_unit" | bc -l)
 
-  # Remove trailing `.0` if present
-  if [[ $total_seconds =~ \.0$ ]]; then
+  # Remove trailing `.0` or `.00`, etc. if present
+  if [[ $total_seconds =~ \.0+$ ]]; then
     total_seconds=$(printf "%.0f" "$total_seconds")
   fi
   echo "$total_seconds"
