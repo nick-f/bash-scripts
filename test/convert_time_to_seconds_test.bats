@@ -44,3 +44,13 @@ setup() {
   run convert_time_to_seconds.sh '5.5 days'
   assert_output 475200
 }
+
+@test "converts '1 week' to seconds" {
+  run convert_time_to_seconds.sh '1 week'
+  assert_output 604800
+}
+
+@test "converts '3 weeks' to seconds" {
+  run convert_time_to_seconds.sh '3 weeks'
+  assert_output 1814400
+}

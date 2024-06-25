@@ -15,6 +15,7 @@ convert_time_to_seconds() {
   if [[ $input_string == *"minute"* ]]; then unit="minutes"; fi
   if [[ $input_string == *"hour"* ]]; then unit="hours"; fi
   if [[ $input_string == *"day"* ]]; then unit="days"; fi
+  if [[ $input_string == *"week"* ]]; then unit="weeks"; fi
 
   case $unit in
   "seconds")
@@ -28,6 +29,9 @@ convert_time_to_seconds() {
     ;;
   "days")
     seconds_per_unit=86400
+    ;;
+  "weeks")
+    seconds_per_unit=604800
     ;;
   *)
     echo "Unsupported unit: $unit" >&2
